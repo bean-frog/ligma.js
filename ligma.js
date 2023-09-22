@@ -24,21 +24,30 @@ var ligmajs = (function() {
       }
       run();
       },
-      rajesh: function(company, amount, cardtype) {
+      scammer: function(company, amount, cardtype, msgtype) {
         let validcompanies = ['apple', 'google', 'microsoft', 'norton', 'mcafee'];
         let validcardtypes = ['googleplay', 'amazon', 'visa', 'bassproshop'];
+        let validmsgtypes = ['alert', 'message'];
         if (validcompanies.includes(company)) {
           if (validcardtypes.includes(cardtype)) {
             if(Number.isInteger(amount)) {
-              alert('helo my friend this is adam smith from' + company + 'your computer has a virus and to remove it please send to me a ' + amount + 'dollar' + cardtype + 'card thank you sir')
+              if (validmsgtypes.includes(msgtype)) {
+                if (msgtype = validmsgtypes[0]) {
+                  alert('helo my friend this is adam smith from ' + company + '. your computer has a virus and to remove it please send to me a ' + amount + ' dollar ' + cardtype + ' card thank you sir')
+                } else if (msgtype = validmsgtypes[1]) {
+                  console.log('helo my friend this is adam smith from ' + company + '. your computer has a virus and to remove it please send to me a ' + amount + ' dollar ' + cardtype + ' card thank you sir')
+                }
+              } else {
+                console.error('ligmajs error in module "scammer". invalid msgtype provided: ' + msgtype)
+              }
             } else {
-              console.error('ligmajs error in module "rajesh". invalid amount arg provided: ' + amount)
+              console.error('ligmajs error in module "scammer". invalid amount arg provided: ' + amount)
             }
           } else {
-          console.error('ligmajs error in module "rajesh". invalid cardtype arg provided: ' + cardtype)
+          console.error('ligmajs error in module "scammer". invalid cardtype arg provided: ' + cardtype)
           }
         } else {
-          console.error('ligmajs error in module "rajesh". invalid company arg provided: ' + company)
+          console.error('ligmajs error in module "scammer". invalid company arg provided: ' + company)
         }
       },
 
