@@ -50,6 +50,47 @@ var ligmajs = (function() {
           console.error('ligmajs error in module "scammer". invalid company arg provided: ' + company)
         }
       },
-
+    bluescreen: function(timeout) {
+      setTimeout(function() {
+        const imagecdn = 'https://cdn.wallpapersafari.com/19/92/Gxzukd.png';
+        let bsod = document.createElement('div');
+        bsod.style.position = 'absolute';
+        bsod.style.height = "100%";
+        bsod.style.width = '100%';
+        bsod.style.top = '0';
+        bsod.style.right = '0';
+        bsod.style.backgroundImage = `url(${imagecdn})`;
+        document.body.insertAdjacentElement('afterbegin', bsod)
+      }, timeout);
+    },
+    secretPassage: function(id, password, content) {
+      let element = document.getElementById(id);
+      element.contentEditable = 'true';
+      element.spellcheck = 'false';
+      let popup = null; 
+      element.addEventListener('input', function() {
+        if (element.textContent === password) {
+          if (!popup) {
+            popup = document.createElement('div');
+            popup.style.textAlign = 'center';
+            popup.style.margin = 'auto';
+            popup.style.position = 'fixed';
+            popup.style.top = '50%';
+            popup.style.left = '50%';
+            popup.style.transform = 'translate(-50%, -50%)'; 
+            popup.style.zIndex = '9999'; 
+            popup.innerHTML = content;
+            document.body.appendChild(popup);
+          }
+        } else {
+          if (popup) {
+            document.body.removeChild(popup);
+            popup = null;
+          }
+        }
+      });
+    }
+    
+    
     };
   })();
