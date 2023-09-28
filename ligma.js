@@ -54,7 +54,7 @@ var ligmajs = (function() {
       setTimeout(function() {
         const imagecdn = 'https://cdn.wallpapersafari.com/19/92/Gxzukd.png';
         let bsod = document.createElement('div');
-        bsod.style.position = 'absolute';
+        bsod.style.position = 'fixed';
         bsod.style.height = "100%";
         bsod.style.width = '100%';
         bsod.style.top = '0';
